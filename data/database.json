@@ -20,6 +20,13 @@
       "unit": "m3",
       "quantity": 0,
       "price": 0
+    },
+    {
+      "id": "13",
+      "name": "KJCGUIFY",
+      "unit": "m3",
+      "quantity": 100,
+      "price": 74656
     }
   ],
   "imports": [
@@ -29,6 +36,13 @@
       "qty": 0,
       "price": 0,
       "date": "2025-11-22T06:59:55.024Z"
+    },
+    {
+      "id": "IMP1763801246887",
+      "itemId": "13",
+      "qty": 100,
+      "price": 74656,
+      "date": "2025-11-22T08:47:26.887Z"
     }
   ],
   "exports": []

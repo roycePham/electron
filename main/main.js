@@ -1,8 +1,8 @@
 const { app, BrowserWindow, ipcMain } = require('electron');
 const path = require('path');
 const isDev = process.env.NODE_ENV === 'development' || !app.isPackaged;
-const { readDB, writeDB } = require('./fileService');
-const { verify } = require('./authService');
+
+const { registerApiRoutes } = require('./apiRoutes');
 
 function createWindow() {
   const win = new BrowserWindow({
@@ -32,9 +32,10 @@ function createWindow() {
   }
 }
 
+
 app.whenReady().then(() => {
   createWindow();
-
+  registerApiRoutes();
   app.on('activate', function () {
     if (BrowserWindow.getAllWindows().length === 0) createWindow();
   });
@@ -42,18 +43,4 @@ app.whenReady().then(() => {
 
 app.on('window-all-closed', function () {
   if (process.platform !== 'darwin') app.quit();
-});
-
-ipcMain.handle('read-data', async () => {
-  return readDB();
-});
-
-ipcMain.handle('write-data', async (event, data) => {
-  writeDB(data);
-  return true;
-});
-
-ipcMain.handle('login', async (event, { username, password }) => {
-  const user = verify(username, password);
-  return true;
 });

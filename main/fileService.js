@@ -21,4 +21,27 @@ function writeDB(data) {
   fs.writeFileSync(p, JSON.stringify(data, null, 2), 'utf-8');
 }
 
-module.exports = { readDB, writeDB };
+
+// Xóa sản phẩm theo id
+function deleteById(id) {
+  const db = readDB();
+  const newItems = db.items.filter(i => String(i.id) !== String(id));
+  db.items = newItems;
+  writeDB(db);
+  return true;
+}
+
+
+// Tìm sản phẩm theo id, name hoặc price
+function searchItem(key) {
+  const db = readDB();
+  if (!key) return db.items;
+  const lowerKey = String(key).toLowerCase();
+  return db.items.filter(i =>
+    String(i.id).toLowerCase().includes(lowerKey) ||
+    (i.name && i.name.toLowerCase().includes(lowerKey)) ||
+    (typeof i.price !== 'undefined' && String(i.price).includes(lowerKey))
+  );
+}
+
+module.exports = { readDB, writeDB, deleteById, searchItem };
