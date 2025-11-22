@@ -1,0 +1,35 @@
+{
+  "items": [
+    {
+      "id": "G001",
+      "name": "Gỗ lim",
+      "unit": "m3",
+      "quantity": 120,
+      "price": 5000000
+    },
+    {
+      "id": "G002",
+      "name": "Gỗ sồi",
+      "unit": "m3",
+      "quantity": 80,
+      "price": 3000000
+    },
+    {
+      "id": "12",
+      "name": "djshgoguh",
+      "unit": "m3",
+      "quantity": 0,
+      "price": 0
+    }
+  ],
+  "imports": [
+    {
+      "id": "IMP1763794795024",
+      "itemId": "12",
+      "qty": 0,
+      "price": 0,
+      "date": "2025-11-22T06:59:55.024Z"
+    }
+  ],
+  "exports": []
+}
